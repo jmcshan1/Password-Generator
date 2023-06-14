@@ -11,7 +11,12 @@ function generatePassword(){
     generatePassword();
   };
 
-
+  var passwordLower = window.confirm("Click OK to include lowercase characters.");
+  var passwordUpper = window.confirm("Click OK to include uppercase characters.");
+  var passwordNumeric = window.confirm("Click OK to include numeric characters.");
+  var passwordSpecial = window.confirm("Click OK to include special characters.");
+  
+}
 
 function writePassword() {
   
