@@ -4,10 +4,11 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function generatePassword(){
 
+  // Prompts that asks the user for their criteria for the generated password
   var passwordLength = window.prompt("How many character would you like your password to contain?");
-
+  // Checks if the user inputted password length meets the acceptance criteria
   if (!(8 <= passwordLength && passwordLength <= 128)){
-    window.alert("Pick a number of at least 8 and no more than 128.");
+    window.alert("Pick a number that is at least 8 and no more than 128.");
     generatePassword();
   };
 
@@ -15,19 +16,23 @@ function generatePassword(){
   var passwordUpper = window.confirm("Click OK to include uppercase characters.");
   var passwordNumeric = window.confirm("Click OK to include numeric characters.");
   var passwordSpecial = window.confirm("Click OK to include special characters.");
-  
+  // Checks if the user picked at least one character type
   if (!passwordLower && !passwordUpper && !passwordNumeric && !passwordSpecial){
     window.alert("Pick at least one character type");
     generatePassword();
   }
 
+  // Variables containing the all characters matching the prompted character types above
   var lowerChar = "abcdefghijklmnopqrstuvwxyz";
   var upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var numericChar="0123456789";
   var specialChar = ' !"#$%&()*+,-./:;<=>?@[\]^_{|}`~' + "'";
+
+  // Checks whichever character 
+  // types the user selected and stores
+  // the matching characters within one variable
   var passwordArray = '';
-  //GeneratedPassword
-  var generatedPassword;
+
   if(passwordLower){
     passwordArray = passwordArray + lowerChar;
   }
@@ -43,16 +48,19 @@ function generatePassword(){
 
   console.log(passwordArray);
 
+  // Variable to store the generated Password
   var generatedPassword= "";
-
+  // Adds on a random character from passwordArray to generatedPassword
   for(i = 0; i < passwordLength; i++){
     var randomIndex = Math.floor(Math.random() * passwordArray.length);
     generatedPassword = generatedPassword.concat(passwordArray[randomIndex]);
   }
 
+  // Window alert telling the user what their generated password is
   window.alert("Your password is " + generatedPassword + ".");
-  console.log(generatedPassword)
-
+  console.log(generatedPassword);
+  console.log(typeof(generatedPassword))
+  // Returns the generated password
   return generatedPassword;
 }
 
