@@ -21,18 +21,36 @@ function generatePassword(){
     generatePassword();
   }
 
-  var numeric="0,1,2,3,4,5,6,7,8,9";
-  var lower = "abcdefghijklmnopqrstuvwxyz"
-  var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  var special = ' !"#$%&()*+,-./:;<=>?@[\]^_{|}`~' + "'";
-  console.log(special);
+  var lowerChar = "abcdefghijklmnopqrstuvwxyz"
+  var upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  var numericChar="0123456789";
+  var specialChar = ' !"#$%&()*+,-./:;<=>?@[\]^_{|}`~' + "'";
+  var passwordArray = '';
   //GeneratedPassword
   var generatedPassword;
-
-  for(i=0; i < passwordLength; i++){
-
-    generatedPassword[i];
+  if(passwordLower){
+    passwordArray = passwordArray + lowerChar;
   }
+  if(passwordUpper){
+    passwordArray = passwordArray + upperChar;
+  }
+  if(passwordNumeric){
+    passwordArray = passwordArray + numericChar;
+  }
+  if(passwordSpecial){
+    passwordArray = passwordArray + specialChar;
+  }
+
+  console.log(passwordArray[6]);
+
+  var generatedPassword = [];
+
+  for(i = 0; i < passwordLength; i++){
+    var randomIndex = Math.floor(Math.random * passwordArray.length);
+    generatedPassword.push(passwordArray[randomIndex]);
+  }
+  // generatedPassword[i];
+  console.log(generatedPassword)
 }
 
 function writePassword() {
