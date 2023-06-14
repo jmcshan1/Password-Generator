@@ -21,8 +21,8 @@ function generatePassword(){
     generatePassword();
   }
 
-  var lowerChar = "abcdefghijklmnopqrstuvwxyz"
-  var upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  var lowerChar = "abcdefghijklmnopqrstuvwxyz";
+  var upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var numericChar="0123456789";
   var specialChar = ' !"#$%&()*+,-./:;<=>?@[\]^_{|}`~' + "'";
   var passwordArray = '';
@@ -41,16 +41,19 @@ function generatePassword(){
     passwordArray = passwordArray + specialChar;
   }
 
-  console.log(passwordArray[6]);
+  console.log(passwordArray);
 
-  var generatedPassword = [];
+  var generatedPassword= "";
 
   for(i = 0; i < passwordLength; i++){
-    var randomIndex = Math.floor(Math.random * passwordArray.length);
-    generatedPassword.push(passwordArray[randomIndex]);
+    var randomIndex = Math.floor(Math.random() * passwordArray.length);
+    generatedPassword = generatedPassword.concat(passwordArray[randomIndex]);
   }
-  // generatedPassword[i];
+
+  window.alert("Your password is " + generatedPassword + ".");
   console.log(generatedPassword)
+
+  return generatedPassword;
 }
 
 function writePassword() {
