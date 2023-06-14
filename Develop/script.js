@@ -16,6 +16,23 @@ function generatePassword(){
   var passwordNumeric = window.confirm("Click OK to include numeric characters.");
   var passwordSpecial = window.confirm("Click OK to include special characters.");
   
+  if (!passwordLower && !passwordUpper && !passwordNumeric && !passwordSpecial){
+    window.alert("Pick at least one character type");
+    generatePassword();
+  }
+
+  var numeric="0,1,2,3,4,5,6,7,8,9";
+  var lower = "abcdefghijklmnopqrstuvwxyz"
+  var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  var special = ' !"#$%&()*+,-./:;<=>?@[\]^_{|}`~' + "'";
+  console.log(special);
+  //GeneratedPassword
+  var generatedPassword;
+
+  for(i=0; i < passwordLength; i++){
+
+    generatedPassword[i];
+  }
 }
 
 function writePassword() {
