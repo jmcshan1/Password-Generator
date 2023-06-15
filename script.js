@@ -7,10 +7,12 @@ function generatePassword(){
   // Prompts that asks the user for their criteria for the generated password
   var passwordLength = window.prompt("How many character would you like your password to contain?");
   // Checks if the user inputted password length meets the acceptance criteria
-  if (!(8 <= passwordLength && passwordLength <= 128)){
+  if (!(8 <= passwordLength && passwordLength <= 128) && passwordLength){
     window.alert("Pick a number that is at least 8 and no more than 128.");
-    generatePassword();
-  };
+    return;
+  }else if(!passwordLength){
+    return;
+  }
 
   var passwordLower = window.confirm("Click OK to include lowercase characters.");
   var passwordUpper = window.confirm("Click OK to include uppercase characters.");
@@ -19,7 +21,7 @@ function generatePassword(){
   // Checks if the user picked at least one character type
   if (!passwordLower && !passwordUpper && !passwordNumeric && !passwordSpecial){
     window.alert("Pick at least one character type");
-    generatePassword();
+    return;
   }
 
   // Variables containing the all characters matching the prompted character types above
@@ -46,8 +48,6 @@ function generatePassword(){
     passwordArray = passwordArray + specialChar;
   }
 
-  console.log(passwordArray);
-
   // Variable to store the generated Password
   var generatedPassword= "";
   // Adds on a random character from passwordArray to generatedPassword
@@ -59,18 +59,19 @@ function generatePassword(){
   // Window alert telling the user what their generated password is
   window.alert("Your password is " + generatedPassword + ".");
   console.log(generatedPassword);
-  console.log(typeof(generatedPassword))
   // Returns the generated password
   return generatedPassword;
 }
 
 function writePassword() {
   
-
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  if (typeof(password) === "string"){
+    passwordText.value = password;
+  }
+  
 
 }
 
