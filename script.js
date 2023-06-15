@@ -71,8 +71,8 @@ function writePassword() {
   if (typeof(password) === "string"){
     passwordText.value = password;
   }
-  
 
+  
 }
 
 // Add event listener to generate button
